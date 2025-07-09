@@ -1,6 +1,6 @@
 # ABI Lens
 
-_A VS Code extension to help C++ developers inspect their Application Binary Interface (ABI) inline—struct/class memory layouts, v-tables, and calling conventions at a glance._
+_A VS Code extension to help C++ developers inspect their Application Binary Interface (ABI) inline struct/class memory layouts, v-tables, and calling conventions at a glance._
 
 ## Features
 
@@ -11,9 +11,6 @@ _A VS Code extension to help C++ developers inspect their Application Binary Int
 - **File Summary**  
   Run **“ABI Lens: Show File ABI”** to output layouts for all user-defined types in the active file into an output channel.
   <img src="https://raw.githubusercontent.com/anon-28/extension-images/abi-lens/demo-4.png" alt="Hover Inspection demo" width="250" height="250" />
-
-- **Custom Type Filtering**  
-  Only displays layouts for types you’ve declared in your source—system and standard library types are automatically skipped.
 
 - **Markdown Tooltips & Output**  
   ABI details are rendered as Markdown code blocks in both hover tooltips and the **ABI Lens** output channel.
