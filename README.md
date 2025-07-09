@@ -1,71 +1,73 @@
-# abi-lens README
+# ABI Lens
 
-This is the README for your extension "abi-lens". After writing up a brief description, we recommend including the following sections.
+_A VS Code extension to help C++ developers inspect their Application Binary Interface (ABI) inline—struct/class memory layouts, v-tables, and calling conventions at a glance._
 
 ## Features
 
-Describe specific features of your extension including screenshots of your extension in action. Image paths are relative to this README file.
+- **Hover Inspection**  
+  Hover over any user-defined `struct` or `class` to see its record layout: field offsets, sizes, alignment, padding.
+  <img src="https://raw.githubusercontent.com/anon-28/extension-images/abi-lens/demo-1.png" alt="Hover Inspection demo" width="250" height="250" />
+  <img src="https://raw.githubusercontent.com/anon-28/extension-images/abi-lens/demo-2.png" alt="Hover Inspection demo" width="250" height="250" />
 
-For example if there is an image subfolder under your extension project workspace:
+- **File Summary**  
+  Run **“ABI Lens: Show File ABI”** to output layouts for all user-defined types in the active file into an output channel.
+  <img src="https://raw.githubusercontent.com/anon-28/extension-images/abi-lens/demo-4.png" alt="Hover Inspection demo" width="250" height="250" />
 
-\!\[feature X\]\(images/feature-x.png\)
+- **Custom Type Filtering**  
+  Only displays layouts for types you’ve declared in your source—system and standard library types are automatically skipped.
 
-> Tip: Many popular extensions utilize animations. This is an excellent way to show off your extension! We recommend short, focused animations that are easy to follow.
+- **Markdown Tooltips & Output**  
+  ABI details are rendered as Markdown code blocks in both hover tooltips and the **ABI Lens** output channel.
+
+## Usage
+
+1. **Open the Command Palette**  
+   Press `Ctrl+Shift+P` (Windows/Linux) or `Cmd+Shift+P` (macOS).
+
+2. **Type `ABI Lens:`**  
+   Then pick **“Show File ABI”** to generate a summary for all user-defined types in the current file.
+
+3. **Hover in editor**  
+   Open any C/C++ file (`.cpp`, `.h`, etc.) and hover over a user-defined `struct` or `class` name to see its inline ABI layout.
 
 ## Requirements
 
-If you have any requirements or dependencies, add a section describing those and how to install and configure them.
+- **Clang/LLVM** with `clang++` on your `PATH`  
+  - **Linux:**  
+    ```bash
+    sudo apt install clang llvm
+    ```  
+  - **macOS:**  
+    ```bash
+    brew install llvm
+    export PATH="$(brew --prefix llvm)/bin:$PATH"
+    ```  
+  - **Windows:**  
+    Install LLVM via the official installer or Chocolatey:  
+    ```powershell
+    choco install llvm
+    ```
 
 ## Extension Settings
 
-Include if your extension adds any VS Code settings through the `contributes.configuration` extension point.
-
-For example:
-
-This extension contributes the following settings:
-
-* `myExtension.enable`: Enable/disable this extension.
-* `myExtension.thing`: Set to `blah` to do something.
+This extension contributes no customizable settings.
 
 ## Known Issues
 
-Calling out known issues can help limit users opening duplicate issues against your extension.
+- Only user-defined types in the active file are shown; hovering on library or standard types is ignored.  
+- Very large files with many types may take a few seconds to process the layout dump.  
+- Requires a successful syntax-only compile; files with errors will not produce layouts.
 
-## Release Notes
+## Changelog
 
-Users appreciate release notes as you update your extension.
+### 0.1.0
 
-### 1.0.0
-
-Initial release of ...
-
-### 1.0.1
-
-Fixed issue #.
-
-### 1.1.0
-
-Added features X, Y, and Z.
+- Initial release  
+  - Hover Inspection for user types  
+  - **Show File ABI** summary command  
+  - Custom type filtering  
+  - Markdown-formatted tooltips and output channel
 
 ---
 
-## Following extension guidelines
-
-Ensure that you've read through the extensions guidelines and follow the best practices for creating your extension.
-
-* [Extension Guidelines](https://code.visualstudio.com/api/references/extension-guidelines)
-
-## Working with Markdown
-
-You can author your README using Visual Studio Code. Here are some useful editor keyboard shortcuts:
-
-* Split the editor (`Cmd+\` on macOS or `Ctrl+\` on Windows and Linux).
-* Toggle preview (`Shift+Cmd+V` on macOS or `Shift+Ctrl+V` on Windows and Linux).
-* Press `Ctrl+Space` (Windows, Linux, macOS) to see a list of Markdown snippets.
-
-## For more information
-
-* [Visual Studio Code's Markdown Support](http://code.visualstudio.com/docs/languages/markdown)
-* [Markdown Syntax Reference](https://help.github.com/articles/markdown-basics/)
-
-**Enjoy!**
+*Enjoy crystal-clear ABI insights!*  

@@ -2,20 +2,40 @@
   "name": "abi-lens",
   "displayName": "ABI Lens",
   "description": "ABI Lens: Inspect your C++ binary interface inline struct layouts, v-tables, calling conventions, and symbol mangling at a glance.",
-  "version": "0.0.1",
+  "version": "0.1.0",
+  "publisher": "AnmolTYAGI",
   "engines": {
     "vscode": "^1.101.0"
   },
+  "files": [
+    "README.md",
+    "package.json"
+  ],
+  "keywords": [
+    "cpp",
+    "compile",
+    "abi"
+  ],
   "categories": [
     "Other"
   ],
-  "activationEvents": [],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/anon-28/abi-lens"
+  },
+  "activationEvents": [
+    "onLanguage:cpp",
+    "onLanguage:c",
+    "onLanguage:cxx",
+    "onLanguage:h",
+    "onLanguage:hpp"
+  ],
   "main": "./out/extension.js",
   "contributes": {
     "commands": [
       {
-        "command": "abi-lens.helloWorld",
-        "title": "Hello World"
+        "command": "abi-lens.showFileAbi",
+        "title": "ABI Lens: Show File ABI"
       }
     ]
   },
