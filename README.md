@@ -6,8 +6,7 @@ _A VS Code extension to help C++ developers inspect their Application Binary Int
 
 - **Hover Inspection**  
   Hover over any user-defined `struct` or `class` to see its record layout: field offsets, sizes, alignment, padding.
-  <img src="https://raw.githubusercontent.com/anon-28/extension-images/abi-lens/demo-1.png" alt="Hover Inspection demo" width="250" height="250" />
-  <img src="https://raw.githubusercontent.com/anon-28/extension-images/abi-lens/demo-2.png" alt="Hover Inspection demo" width="250" height="250" />
+  <img src="https://raw.githubusercontent.com/anon-28/extension-images/abi-lens/demo-video.gif" alt="Hover Inspection demo"/>
 
 - **File Summary**  
   Run **“ABI Lens: Show File ABI”** to output layouts for all user-defined types in the active file into an output channel.
@@ -57,6 +56,7 @@ This extension contributes no customizable settings.
 - Only user-defined types in the active file are shown; hovering on library or standard types is ignored.  
 - Very large files with many types may take a few seconds to process the layout dump.  
 - Requires a successful syntax-only compile; files with errors will not produce layouts.
+- User-defined types must actually be used in the code; otherwise, the compiler may optimize them away and no information will be available.
 
 ## Changelog
 
